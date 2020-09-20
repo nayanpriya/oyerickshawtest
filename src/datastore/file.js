@@ -25,10 +25,10 @@ export function uploadFile(fileUpload) {
           reader.readAsBinaryString(fileUpload.files[0]);
         }
       } else {
-        reject("This browser does not support HTML5.");
+        reject(new Error("This browser does not support HTML5."));
       }
     } else {
-      reject("Please upload a valid Excel file.");
+      reject(new Error("Please upload a valid Excel file."));
     }
   });
 }
