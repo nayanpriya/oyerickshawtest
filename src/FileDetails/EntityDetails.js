@@ -70,24 +70,26 @@ export default class EntityDetails extends React.Component {
     return (
       this.props.uploadStatus === 2 &&
       entityDetails && (
-        <>
-          <button
-            id="approve"
-            onClick={this.approveEntity}
-            disabled={this.state.checkedEarningIds.length === 0}
-          >
-            Approve
-          </button>
+        <div className="entity-details">
+          <div className="approve-btn-row">
+            <button
+              className="btn approve-btn"
+              onClick={this.approveEntity}
+              disabled={this.state.checkedEarningIds.length === 0}
+            >
+              Approve
+            </button>
+          </div>
 
           <div className="table">
-            <div className="table-row">
-              <div className="table-column">Select</div>
+            <div className="table-row thead">
+              <div className="table-column select">{""}</div>
               {getColumnNames().map((col) => (
                 <div key={col} className="table-column">
-                  {col}
+                  {col === "earning_id" ? "EARNING-ID" : col.toUpperCase()}
                 </div>
               ))}
-              <div className="table-column">Action</div>
+              <div className="table-column action">Action</div>
             </div>
             {entityDetails && (
               <div>
@@ -95,7 +97,7 @@ export default class EntityDetails extends React.Component {
                   return (
                     <div className="table-row" key={row.earning_id}>
                       <input
-                        className="table-column"
+                        className="table-column select"
                         type="checkbox"
                         onChange={(event) =>
                           this.selectRow(event, row.earning_id)
@@ -104,9 +106,10 @@ export default class EntityDetails extends React.Component {
                       <div className="table-column">{row.mobile}</div>
                       <div className="table-column">{row.earning_id}</div>
                       <div className="table-column">{row.earning}</div>
-                      <div className="table-column">
+                      <div className="table-column action">
                         <button
                           onClick={() => this.rejectModalShow(row.earning_id)}
+                          className="btn reject-btn"
                         >
                           Reject
                         </button>
@@ -122,13 +125,23 @@ export default class EntityDetails extends React.Component {
               <div className="reject-modal">
                 <textarea onChange={this.rejectReasonChange}></textarea>
                 <div className="reject-actions">
-                  <button onClick={this.rejectModalSubmit}>Reject</button>
-                  <button onClick={this.rejectModalCancel}>Cancel</button>
+                  <button
+                    className="btn reject-btn"
+                    onClick={this.rejectModalSubmit}
+                  >
+                    Reject
+                  </button>
+                  <button
+                    className="btn cancel-btn"
+                    onClick={this.rejectModalCancel}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             </RejectModal>
           )}
-        </>
+        </div>
       )
     );
   }

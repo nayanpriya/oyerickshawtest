@@ -1,10 +1,17 @@
-/* .table-column:nth-child(1) {
-    flex: 1;
+.entity-details {
+  border: 1px solid #eee;
+  background: white;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 5px;
 }
 
-.table-column:nth-child(2) , .table-column:nth-child(3){
-    flex: .5;
-} */
+.approve-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 63px;
+  margin-top: 20px;
+}
 
 .table {
   margin: 20px 0;
@@ -25,21 +32,79 @@
   background: #ffffff;
   border: 1px solid #e3e3e3;
 }
-.table-column {
-  flex-grow: 4;
+.table-column.select {
+  flex: 1;
+}
+.table-column:nth-child(2) {
+  flex: 4;
+  text-align: center;
+}
+.table-column:nth-child(3) {
+  flex: 2;
+  text-align: center;
+}
+.table-column:nth-child(4) {
+  flex: 3;
+  text-align: center;
+}
+.table-column.action {
+  flex: 2;
+  text-align: center;
+}
+.thead {
+  background-color: #7d7fa2;
+  color: white;
 }
 
-button {
+.btn {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #dddddd;
-  background: blueviolet;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 
-button:hover {
+.btn:disabled {
+  background-color: gray;
+  color: white;
+}
+.btn:hover {
+  color: white;
+}
+
+.btn.approve-btn {
+  color: white;
+  background-color: green;
+}
+.btn.approve-btn:hover {
+  color: green;
+  background-color: white;
+}
+.btn.approve-btn:disabled {
+  background-color: #eee;
+  color: gray;
+}
+.btn.approve-btn:disabled:hover {
+  background-color: #eee;
+  color: gray;
+}
+
+.btn.reject-btn {
+  color: white;
+  background-color: rgb(226, 43, 43);
+}
+.btn.reject-btn:hover {
+  color: rgb(226, 43, 43);
+  background-color: white;
+}
+
+.btn.cancel-btn {
+  border: 1px solid #222;
   color: #222;
+  background-color: white;
+}
+.btn.cancel-btn:hover {
+  background-color: #222;
+  color: white;
 }
 
 .reject-modal {
