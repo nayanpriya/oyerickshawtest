@@ -27,7 +27,7 @@ export default class App extends React.Component {
   };
 
   reject = (earning_id, remark) => {
-    reject(earning_id, remark).then(() => {
+    return reject(earning_id, remark).then(() => {
       this.setState({ listDetails: getData() });
     });
   };
