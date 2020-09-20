@@ -1,3 +1,1 @@
-import { EntityDetails } from './EntityDetails'
-
-export { EntityDetails }
+export { default as EntityDetails } from "./EntityDetails";

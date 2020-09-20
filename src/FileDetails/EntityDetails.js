@@ -12,21 +12,6 @@ export default class EntityDetails extends React.Component {
     checkedEarningIds: []
   };
 
-  handleRowRendering = (user) => {
-    console.log(user);
-    return (
-      <>
-        {user.map((item) => (
-          <div key={item} className="table-column">
-            {item}
-          </div>
-        ))}
-
-        <button id="reject"> Reject</button>
-      </>
-    );
-  };
-
   approveEntity = () => {
     this.props.approve(this.state.checkedEarningIds);
   };

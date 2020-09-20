@@ -12,7 +12,6 @@ export default class App extends React.Component {
   }
 
   setStatus = (uploadStatus) => {
-    console.log("setting status as ", uploadStatus);
     if (uploadStatus === 2) {
       const listDetails = getData();
       this.setState({ listDetails });

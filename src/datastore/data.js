@@ -11,8 +11,6 @@ export function getColumnNames() {
 
 export function setData(rawData) {
   data = parseData(rawData);
-  console.log("setData in data.js");
-  console.log(data);
 }
 
 export function deleteData(earning_id) {
